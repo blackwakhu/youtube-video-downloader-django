@@ -1,4 +1,42 @@
 input[type='text']{
   width: 100%;
   padding: 5px;
+  font-size: 1.1em;
+  border: none;
+  outline: none;
+}
+
+.input-item{
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 5px;
+  display: flex;
+  width: 78%;
+}
+
+.input-item label{
+  font-size: 0.9em;
+  text: uppercase;
+}
+
+input[type='submit']{
+  color: green;
+  background: white;
+  border: solid green 3px;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 1.2em;
+  width: 20%;
+}
+
+input[type='submit']:hover{
+  color: beige;
+  background: green;
+}
+
+form{
+  display: inline-flex;
+  width: 100%;
+  flex-flow: wrap;
 }
