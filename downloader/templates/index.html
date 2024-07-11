@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Download</title>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+  <div class="content">
+    <h1>YouTube Downloader</h1>
+    <form>
+      {% csrf_token %}
+      <div class="input-item">
+        <label>Url</label>
+        <input type="text" name="url" placeholder="https://www.youtube.com/watch?v=dQw4w" required/>
+      </div>
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
+  <script src="{% static 'js/function.js' %}"></script>
+</body>
+</html>
