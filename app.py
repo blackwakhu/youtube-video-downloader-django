@@ -13,7 +13,7 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 format['height'] = "None"
             if  'filesize' not in format.keys():
                 format['filesize'] = 'None'
-            print(f"  - {format['format_id']} - {format['ext']} {format['height']}p {format['filesize']}")
+            print(f"  - {format['format_id']} - {format['ext']} {format['height']}p {format['filesize']} {format['format']}")
             # print(f"{format.keys()}")
         # else:
             # print(f"  - {format['format_id']} - {format['ext']}")

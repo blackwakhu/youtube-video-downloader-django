@@ -19,23 +19,22 @@
       </div>
       <input type="submit" value="Submit"/>
     </form>
-    <table>
+    <table class="video-table">
       <thead>
         <tr>
           <th>Extension</th>
+          <th>Format</th>
+          <th>FileSize</th>
         </tr>
       </thead>
       <tbody>
       {% for video in videos %}
-        <!-- <tr class="{{datum.ext}}">
-          <td>{{datum.ext}}</td>
-          <td>{{datum.filesize}}</td>
-          <td><button><a href="{{datum.url}}">Download</a></button></td>
-        </tr> -->
-        <tr class="video">
+        <tr>
           <td>{{video.ext}}</td>
-          <td>{{video.height}}p</td>
+          <td>{{video.format}}</td>
           <td>{{video.filesize}}</td>
+          <td><button><a href="{{video.url}}">Watch</a></button></td>
+          <td><button><a href="">Download</a></button></td>
         </tr>
       {% endfor %}
       </tbody>
