@@ -8,5 +8,12 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
 
     print("Available formats:")
     for format in info.get('formats', []):
-        print(f"  - {format['format_id']} - {format['ext']}  {format['aspect_ratio']}")
+        if format['ext'] == "mp4":
+            if 'height' not in format.keys():
+                format['height'] = "None"
+            print(f"  - {format['format_id']} - {format['ext']} {format['height']}p")
+            # print(f"{format.keys()}")
+        # else:
+            # print(f"  - {format['format_id']} - {format['ext']}")
+            
         # print(f"{format.keys()}")

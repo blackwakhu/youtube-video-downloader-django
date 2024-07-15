@@ -26,11 +26,15 @@
         </tr>
       </thead>
       <tbody>
-      {% for datum in data %}
-        <tr class="{{datum.ext}}">
+      {% for video in videos %}
+        <!-- <tr class="{{datum.ext}}">
           <td>{{datum.ext}}</td>
-          <!-- <td>{{datum}}</td> -->
+          <td>{{datum.filesize}}</td>
           <td><button><a href="{{datum.url}}">Download</a></button></td>
+        </tr> -->
+        <tr class="video">
+          <td>{{video.ext}}</td>
+          <td>{{video.height}}p</td>
         </tr>
       {% endfor %}
       </tbody>
