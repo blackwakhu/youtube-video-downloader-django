@@ -11,7 +11,9 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         if format['ext'] == "mp4":
             if 'height' not in format.keys():
                 format['height'] = "None"
-            print(f"  - {format['format_id']} - {format['ext']} {format['height']}p")
+            if  'filesize' not in format.keys():
+                format['filesize'] = 'None'
+            print(f"  - {format['format_id']} - {format['ext']} {format['height']}p {format['filesize']}")
             # print(f"{format.keys()}")
         # else:
             # print(f"  - {format['format_id']} - {format['ext']}")
