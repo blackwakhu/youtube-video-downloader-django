@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from pytube import YouTube
+import yt_dlp
 
 
 def index(request):
     if request.method == "POST":
         url = request.POST.get("url")
-        yt = YouTube(url)
-        video = yt
-        print(yt)
+        ydl_opts = {}
+        data = []
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
+            for format in info.get('formats', []):
+                data.append()
         return render(request, 'index.html', {"data": video})
     return render(request, 'index.html')
 
