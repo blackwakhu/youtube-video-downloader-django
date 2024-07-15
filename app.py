@@ -8,4 +8,5 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
 
     print("Available formats:")
     for format in info.get('formats', []):
-        print(f"  - {format['format_id']} - {format['ext']}")
+        print(f"  - {format['format_id']} - {format['ext']}  {format['aspect_ratio']}")
+        # print(f"{format.keys()}")

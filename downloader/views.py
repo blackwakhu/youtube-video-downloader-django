@@ -10,8 +10,8 @@ def index(request):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             for format in info.get('formats', []):
-                data.append()
-        return render(request, 'index.html', {"data": video})
+                data.append(format)
+        return render(request, 'index.html', {"data": data})
     return render(request, 'index.html')
 
 def download_list(request):
