@@ -93,11 +93,8 @@ th{
 }
 
 .do-btn{
-  padding: 3px;
-  background: white;
   border: solid violet;
   color: violet;
-  border-radius: 3px;
 }
 
 .do-link, download-link {
@@ -110,15 +107,24 @@ th{
   background: violet;
 }
 
+.download-btn, .do-btn{
+  padding: 3px;
+  background: white;
+  border: 2px;
+  border-radius: 4px;
+}
+
 .download-btn {
   border: 2px #00ff80 solid;
-  padding: 3px;
   color: #00ff80;
-  background: white;
-  border-radius: 3px;
 }
 
 .download-btn:hover {
   background: #00ff80;
   color: white;
+}
+
+table {
+  width: 50%;
+  margin-left: 25%;
 }
