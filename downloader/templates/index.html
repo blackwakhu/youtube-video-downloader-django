@@ -41,8 +41,20 @@
                 <td>{{video.ext}}</td>
                 <td>{{video.format}}</td>
                 <td>{{video.filesize}}</td>
-                <td><button><a href="{{video.url}}">Watch</a></button></td>
-                <td><button><a href="/download video/{{video.format_id}}/?url={{url}}">Download</a></button></td>
+                <td>
+                  <button class="do-btn">
+                    <a href="{{video.url}}" class="do-link">
+                      Watch
+                    </a>
+                  </button>
+                </td>
+                <td>
+                  <button class="download-btn">
+                    <a class="download-link" href="/download video/{{video.format_id}}/?url={{url}}">
+                      Download
+                    </a>
+                  </button>
+                </td>
               </tr>
             {% endfor %}
             </tbody>
@@ -67,13 +79,17 @@
                   <td>mp3</td>
                   <td>{{sound.filesize}}</td>
                   <td>
-                    <button>
-                      <a href="{{sound.url}}">listen</a>
+                    <button class="do-btn">
+                      <a href="{{sound.url}}" class="do-link">
+                        listen
+                      </a>
                     </button>
                   </td>
                   <td>
-                    <button>
-                      <a href="/download audio/{{sound.format_id}}/?url={{url}}"> download</a>
+                    <button class="download-btn">
+                      <a class="download-link" href="/download audio/{{sound.format_id}}/?url={{url}}"> 
+                        download
+                      </a>
                     </button>
                   </td>
                 </tr>

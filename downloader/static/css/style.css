@@ -91,3 +91,34 @@ th{
   font-size: 1.1em;
   text-align: center;
 }
+
+.do-btn{
+  padding: 3px;
+  background: white;
+  border: solid violet;
+  color: violet;
+  border-radius: 3px;
+}
+
+.do-link, download-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.do-btn:hover {
+  color: white;
+  background: violet;
+}
+
+.download-btn {
+  border: 2px #00ff80 solid;
+  padding: 3px;
+  color: #00ff80;
+  background: white;
+  border-radius: 3px;
+}
+
+.download-btn:hover {
+  background: #00ff80;
+  color: white;
+}
