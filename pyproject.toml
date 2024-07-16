@@ -8,6 +8,7 @@ Django = "^5.0"
 python = "^3.10"
 yt-dlp = "^2024.7.9"
 ffmpeg = "^1.4"
+youtube-dl = "^2021.12.17"
 [tool.poetry.dev-dependencies]
 
 [tool.pyright]
