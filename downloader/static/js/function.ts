@@ -4,11 +4,11 @@ let video_table = document.querySelector<HTMLTableElement>(".video-table");
 let audio_table = document.querySelector<HTMLTableElement>(".audio-table");
 
 video_btn.addEventListener('click', function(){
-  video_table.style.display = "block";
+  video_table.style.display = "table";
   audio_table.style.display = "none";
 })
 
 audio_btn.addEventListener('click', function(){
   video_table.style.display = "none";
-  audio_table.style.display = "block";
+  audio_table.style.display = "table";
 })

@@ -6,7 +6,7 @@ input[type='text']{
   outline: none;
 }
 
-.null-msg{
+p.null-msg{
   color: darkred;
   text-align: center;
   font-size: 1.1em;
@@ -75,4 +75,11 @@ form{
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+th{
+  background: #15ea4a;
+  padding: 5px;
+  font-size: 1.1em;
+  text-align: center;
 }
