@@ -11,4 +11,6 @@ ydl_opts = {
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     info = ydl.extract_info(url, download=False)
     for format in info.get('formats', []):
-      print(f"{format['ext']}")
+        if format['ext'] == 'm4a':
+            print(format['filesize'])
+            print(f"{format.keys()}")
