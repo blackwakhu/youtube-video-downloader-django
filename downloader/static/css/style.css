@@ -6,6 +6,20 @@ input[type='text']{
   outline: none;
 }
 
+.btn-utility{
+  color: deepskyblue;
+  padding: 4px;
+  border: 2px solid deepskyblue;
+  border-radius: 4px;
+  background: white;
+  margin: 5px;
+}
+
+.btn-utility:hover{
+  color: white;
+  background: deepskyblue;
+}
+
 .audio-table{
   display: none;
 }
