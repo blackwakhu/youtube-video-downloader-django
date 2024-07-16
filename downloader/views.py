@@ -1,5 +1,5 @@
 import yt_dlp
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 
 
 def index(request):
@@ -31,7 +31,12 @@ def download_video(request, video_id, sel_format):
     return redirect("/")
 
 def is_video(data):
-    return data['ext'] == "mp4" and 'height' in data.keys() and 'filesize' in data.keys() and data['filesize'] is not None
+    return (
+        data['ext'] == "mp4" 
+        and 'height' in data 
+        and 'filesize' in data 
+        and data['filesize'] is not None
+    )
 
 def get_std_size(data):
     size = data['filesize'] 
