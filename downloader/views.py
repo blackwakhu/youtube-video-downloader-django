@@ -39,7 +39,9 @@ def download_audio(request, format):
 
     file_path = ydl.prepare_filename(ydl.extract_info(url, download=False))
     
-    mp3_file = os.path.splitext(file_path)[0] + ".mp3"
+    file_name = os.path.basename(file_path)
+    last_dot_index = file_name.rfind(".")
+    mp3_file = os.path.join(os.path.dirname(file_path), file_name[:last_dot_index] + ".mp3")
     audio = AudioSegment.from_file(file_path, format=format)
     audio.export(mp3_file, format="mp3")
     
