@@ -1,3 +1,5 @@
+import os
+
 import yt_dlp
 from django.shortcuts import redirect, render
 
@@ -15,16 +17,17 @@ def index(request):
                     format['filesize'] = get_std_size(format)
                     videos.append(format)
                 data.append(format)
-        return render(request, 'index.html', {"data": data, "videos": videos})
+        return render(request, 'index.html', {"data": data, "videos": videos, "url": url})
     return render(request, 'index.html')
 
 def download_list(request):
     return render(request, "index.html")
 
-def download_video(request, video_id, sel_format):
+def download_file(request, format):
+    url = request.GET.get('url')
     ydl_opts = {
-        'outtmpl': '%(title)s.%(ext)s',
-        'format': sel_format
+        'outtmpl': os.path.expanduser("~/Downloads/%(title)s.%(ext)s"),
+        'format': format
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])

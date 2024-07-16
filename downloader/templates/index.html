@@ -38,7 +38,7 @@
           <td>{{video.format}}</td>
           <td>{{video.filesize}}</td>
           <td><button><a href="{{video.url}}">Watch</a></button></td>
-          <td><button><a href="">Download</a></button></td>
+          <td><button><a href="/download/{{video.format_id}}/?url={{url}}">Download</a></button></td>
         </tr>
       {% endfor %}
       </tbody>
