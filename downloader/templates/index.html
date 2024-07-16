@@ -19,6 +19,10 @@
       </div>
       <input type="submit" value="Submit"/>
     </form>
+    <div>
+      <button id="video-btn">Video</button>
+      <button id="audio-btn">Audio</button>
+    </div>
     <table class="video-table">
       <thead>
         <tr>
@@ -38,6 +42,13 @@
         </tr>
       {% endfor %}
       </tbody>
+    </table>
+    <table class="audio-table">
+      <thead>
+        <tr>
+          <th>extension</th>
+        </tr>
+      </thead>
     </table>
   </div>
   <script src="{% static 'js/function.js' %}"></script>
