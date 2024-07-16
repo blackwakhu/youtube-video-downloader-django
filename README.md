@@ -1,12 +1,25 @@
-## DJANGO YOUTUBE DOWNLOADER
+# DJANGO YOUTUBE DOWNLOADER
 This is a django project that downloads videos and audio from youtube
+
+## project requirements
+1. python 3.10
+2. any operating system
 
 ## Get the  project
 follow the following steps
-<ol>
-  <li>first clone the project</li>
-</ol>
-
+1. clone the project
+```git
+ git clone https://github.com/blackwakhu/youtube-video-downloader-django.git
+```
+2. once installed navigate to the folder and then install the requirements
+```pip
+  pip install -r requirements.txt
+```
+3. start the project
+```python
+  python manage.py runserver 
+```
+ 
 ### Use 
 <ol>
   <li>Enter the url of the video or audio you want to download from youtube</li>
