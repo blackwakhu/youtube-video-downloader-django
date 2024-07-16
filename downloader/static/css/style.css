@@ -93,7 +93,7 @@ th{
 }
 
 .do-btn{
-  border: solid violet;
+  border: 2px solid violet;
   color: violet;
 }
 
@@ -110,7 +110,6 @@ th{
 .download-btn, .do-btn{
   padding: 3px;
   background: white;
-  border: 2px;
   border-radius: 4px;
 }
 
@@ -127,4 +126,12 @@ th{
 table {
   width: 50%;
   margin-left: 25%;
+}
+
+
+.div-btn-utility{
+  margin-left: 25%;
+  align-content: center;
+  margin-right: 25%;
+  margin-top: 10px;
 }
