@@ -1,9 +1,10 @@
 import os
 
-import yt_dlp
-from django.shortcuts import redirect, render
 # from pydub import AudioSegment
 import subprocess
+
+import yt_dlp
+from django.shortcuts import redirect, render
 
 from .download_utilities import get_audio, get_video
 
@@ -13,7 +14,13 @@ def index(request):
         url = request.POST.get("url")
         audio = get_audio(url)
         videos = get_video(url)
-        return render(request, 'index.html', {"audio": audio, "videos": videos, "url": url})
+        data = audio + videos
+        return render(request, 'index.html', {
+            "audio": audio, 
+            "data": data, 
+            "videos": videos, 
+            "url": url
+        })
     return render(request, 'index.html')
 
 def download_list(request):
@@ -33,7 +40,7 @@ def download_video(request, format):
         count = 0
         while os.path.exists(file_path):
             count += 1
-            file_path = os.path.expanduser(f"~/Downloads/{title}_{count}.{ext}")
+            file_path = os.path.expanduser(f"~/Downloads/{title} ({count}).{ext}")
 
         ydl_opts['outtmpl'] = file_path
         ydl.download([url])
@@ -66,12 +73,3 @@ def download_audio(request, format):
     os.remove(file_path)
     
     return redirect("/")
-
-
-
-
-    
-
-    
-    
-    

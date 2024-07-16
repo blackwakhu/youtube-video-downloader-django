@@ -20,55 +20,73 @@
       <input type="submit" value="Submit"/>
     </form>
     <div>
-      <button class="btn-utility" id="video-btn">Video</button>
-      <button class="btn-utility" id="audio-btn">Audio</button>
-    </div>
-    <table class="video-table">
-      <thead>
-        <tr>
-          <th>Extension</th>
-          <th>Format</th>
-          <th>FileSize</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for video in videos %}
-        <tr>
-          <td>{{video.ext}}</td>
-          <td>{{video.format}}</td>
-          <td>{{video.filesize}}</td>
-          <td><button><a href="{{video.url}}">Watch</a></button></td>
-          <td><button><a href="/download video/{{video.format_id}}/?url={{url}}">Download</a></button></td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-    <table class="audio-table">
-      <thead>
-        <tr>
-          <th>extension</th>
-          <th>FileSize</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for sound in audio %}
-          <tr>
-            <td>mp3</td>
-            <td>{{sound.filesize}}</td>
-            <td>
-              <button>
-                <a href="{{sound.url}}">listen</a>
-              </button>
-            </td>
-            <td>
-              <button>
-                <a href="/download audio/{{sound.format_id}}/?url={{url}}"> download</a>
-              </button>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+      {% if data|length > 0 %}
+        <div>
+          <button class="btn-utility" id="video-btn">Video</button>
+          <button class="btn-utility" id="audio-btn">Audio</button>
+        </div>
+        {% if videos|length > 0 %}
+          <table class="video-table">
+            <thead>
+              <tr>
+                <th>Extension</th>
+                <th>Format</th>
+                <th>FileSize</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for video in videos %}
+              <tr>
+                <td>{{video.ext}}</td>
+                <td>{{video.format}}</td>
+                <td>{{video.filesize}}</td>
+                <td><button><a href="{{video.url}}">Watch</a></button></td>
+                <td><button><a href="/download video/{{video.format_id}}/?url={{url}}">Download</a></button></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="null-msg">
+            There are no videos to download please enter another url from YouTube
+          </p>
+        {% endif %}
+        {% if audio|length > 0 %}
+          <table class="audio-table">
+            <thead>
+              <tr>
+                <th>extension</th>
+                <th>FileSize</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for sound in audio %}
+                <tr>
+                  <td>mp3</td>
+                  <td>{{sound.filesize}}</td>
+                  <td>
+                    <button>
+                      <a href="{{sound.url}}">listen</a>
+                    </button>
+                  </td>
+                  <td>
+                    <button>
+                      <a href="/download audio/{{sound.format_id}}/?url={{url}}"> download</a>
+                    </button>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="null-msg">
+            There are no videos to download please enter another url from YouTube
+          </p>
+        {% endif %}
+      </div>
+    {% else %}
+     <p class="null-msg">There is no data to display!!!</p>
+    {% endif %}
   </div>
   <script src="{% static 'js/function.js' %}"></script>
 </body>

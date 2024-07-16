@@ -6,6 +6,19 @@ input[type='text']{
   outline: none;
 }
 
+.null-msg{
+  color: darkred;
+  text-align: center;
+  font-size: 1.1em;
+  border: solid #b8c0cb;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: #b8c0cb;
+  margin: 5px;
+  margin-left: 5%;
+}
+
 .btn-utility{
   color: deepskyblue;
   padding: 4px;
