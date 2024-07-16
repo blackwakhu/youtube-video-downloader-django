@@ -2,7 +2,8 @@ import os
 
 import yt_dlp
 from django.shortcuts import redirect, render
-from pydub import AudioSegment
+# from pydub import AudioSegment
+import subprocess
 
 from .download_utilities import get_audio, get_video
 
@@ -42,8 +43,10 @@ def download_audio(request, format):
     file_name = os.path.basename(file_path)
     last_dot_index = file_name.rfind(".")
     mp3_file = os.path.join(os.path.dirname(file_path), file_name[:last_dot_index] + ".mp3")
-    audio = AudioSegment.from_file(file_path, format=format)
-    audio.export(mp3_file, format="mp3")
+    
+    subprocess.call(['ffmpeg', '-i', file_path, mp3_file])
+
+    os.remove(file_path)
     
     return redirect("/")
 
