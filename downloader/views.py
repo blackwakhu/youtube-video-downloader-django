@@ -2,6 +2,7 @@ import os
 
 import yt_dlp
 from django.shortcuts import redirect, render
+from pydub import AudioSegment
 
 
 def index(request):
@@ -23,7 +24,7 @@ def index(request):
 def download_list(request):
     return render(request, "index.html")
 
-def download_file(request, format):
+def download_video(request, format):
     url = request.GET.get('url')
     ydl_opts = {
         'outtmpl': os.path.expanduser("~/Downloads/%(title)s.%(ext)s"),
@@ -31,6 +32,24 @@ def download_file(request, format):
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
+    return redirect("/")
+
+def download_audio(request, format):
+    url = request.GET.get('url')
+    ydl_opts = {
+        'outtmpl': os.path.expanduser("~/Downloads/%(title)s.%(ext)s"),
+        'format': format
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+
+    file_path = ydl.prepare_filename(ydl.extract_info(url, download=False))
+
+    # Convert the file to MP3
+    mp3_file = os.path.splitext(file_path)[0] + ".mp3"
+    audio = AudioSegment.from_file(file_path, format=format)
+    audio.export(mp3_file, format="mp3")
+    
     return redirect("/")
 
 def is_video(data):
